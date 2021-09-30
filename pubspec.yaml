@@ -1,0 +1,26 @@
+name: pgw_sdk
+description: A 2C2P PGW SDK Flutter project.
+version: 0.0.1
+author:
+homepage:
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.ccpp.pgw_sdk
+        pluginClass: PgwSdkPlugin
+      ios:
+        pluginClass: PgwSdkPlugin
