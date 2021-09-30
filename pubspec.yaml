@@ -1,8 +1,7 @@
 name: pgw_sdk
-description: A 2C2P PGW SDK Flutter project.
+description: PGWSDK for Flutter.
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/2C2P/PGWSDK-Flutter
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

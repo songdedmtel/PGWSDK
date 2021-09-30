@@ -22,9 +22,19 @@ The SDK has been developed using `Dart version >=2.12.0`, `iOS Deployment Target
 | Dart SDK | 2.12.0 | 
 
 
+## Initialize
+
+Add initialize to your main.dart file
+ 
+```dart
+PGWSDK.initialize(APIEnvironment.Production);
+```
+
+** Change to `APIEnvironment.Sandbox` if test needed. For more information follow this [link](https://developer.2c2p.com/docs/sandbox)
+
 ## Usage
 
-Import the library to your file:
+Import the library to your file
 
 ```dart
 import 'package:pgw_sdk/builder/card_payment_builder.dart';
