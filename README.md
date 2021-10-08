@@ -8,7 +8,7 @@ Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
-  pgw_sdk: ^0.0.1
+  pgw_sdk: ^0.0.2
 ```
 
 ## System Requirements

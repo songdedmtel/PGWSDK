@@ -1,3 +1,7 @@
+## 0.0.2
+
+* Add PaymentOption, PaymentOptionDetail, TransactionStatus function.
+
 ## 0.0.1
 
 * Initial project.
