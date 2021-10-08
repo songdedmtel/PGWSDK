@@ -25,7 +25,7 @@ The SDK has been developed using `Dart version >=2.12.0`, `iOS Deployment Target
 ## Initialize
 
 Add initialize to your main.dart file
- 
+
 ```dart
 PGWSDK.initialize(APIEnvironment.Production);
 ```
