@@ -6,10 +6,7 @@ import androidx.annotation.NonNull
 import com.ccpp.pgw.sdk.android.builder.PGWSDKParamsBuilder
 import com.ccpp.pgw.sdk.android.core.PGWSDK
 import com.ccpp.pgw.sdk.android.enums.APIEnvironment
-import com.ccpp.pgw_sdk.api.PaymentOptionApi
-import com.ccpp.pgw_sdk.api.PaymentOptionDetailApi
-import com.ccpp.pgw_sdk.api.TransactionApi
-import com.ccpp.pgw_sdk.api.TransactionStatusApi
+import com.ccpp.pgw_sdk.api.*
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -47,6 +44,9 @@ class PgwSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginRegi
             "proceedTransaction" -> {
                 TransactionApi(call, result).request()
             }
+            "paymentWithCardToken" -> {
+                PaymentWithCardTokenApi(call, result).request()
+            }
             "paymentOption" -> {
                 PaymentOptionApi(call, result).request()
             }
@@ -55,6 +55,9 @@ class PgwSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginRegi
             }
             "transactionStatus" -> {
                 TransactionStatusApi(call, result).request()
+            }
+            "cardTokenInfo" -> {
+                CardTokenInfoApi(call, result).request()
             }
             else -> {
                 result.notImplemented()

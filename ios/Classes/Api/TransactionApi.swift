@@ -33,7 +33,9 @@ class TransactionApi {
         PGWSDK.shared.proceedTransaction(transactionResultRequest: request, { (response: TransactionResultResponse) in
             if response.responseCode == APIResponseCode.TransactionAuthenticateRedirect ||
                 response.responseCode == APIResponseCode.TransactionAuthenticateFullRedirect ||
-                response.responseCode == APIResponseCode.TransactionCompleted {
+                response.responseCode == APIResponseCode.TransactionCompleted ||
+                response.responseCode == APIResponseCode.TransactionPaymentSlip ||
+                response.responseCode == APIResponseCode.TransactionQRPayment {
                 
                 let responseDict = [
                     "channelCode": response.channelCode as String,

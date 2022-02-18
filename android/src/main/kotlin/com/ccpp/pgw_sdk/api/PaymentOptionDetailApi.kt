@@ -10,11 +10,8 @@ import androidx.annotation.NonNull
 import com.ccpp.pgw.sdk.android.callback.APIResponseCallback
 import com.ccpp.pgw.sdk.android.core.PGWSDK
 import com.ccpp.pgw.sdk.android.enums.APIResponseCode
-import com.ccpp.pgw.sdk.android.enums.PaymentChannelCode
 import com.ccpp.pgw.sdk.android.model.api.PaymentOptionDetailRequest
 import com.ccpp.pgw.sdk.android.model.api.PaymentOptionDetailResponse
-import com.ccpp.pgw.sdk.android.model.api.PaymentOptionRequest
-import com.ccpp.pgw.sdk.android.model.api.PaymentOptionResponse
 import com.ccpp.pgw_sdk.helper.JsonHelper
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -133,9 +130,9 @@ class PaymentOptionDetailApi(
                         ),
                     ),
                 ),
-                "responseCode" to response.responseCode,
-                "responseDescription" to response.responseDescription,
             ),
+            "responseCode" to response.responseCode,
+            "responseDescription" to response.responseDescription,
         )
 
         return JSONObject(responseMap).toString()

@@ -8,7 +8,7 @@ Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
-  pgw_sdk: ^0.0.2
+  pgw_sdk: ^0.0.3
 ```
 
 ## System Requirements
@@ -34,6 +34,8 @@ PGWSDK.initialize(APIEnvironment.Production);
 
 ## Usage
 
+
+### Card Payment
 Import the library to your file
 
 ```dart
@@ -68,6 +70,42 @@ Finally got a redirect url from result.
 2c2p supported a list of payment methods. Refer to this [link](https://developer.2c2p.com/docs/sdk-payment-methods)
 
 For more information click [here](https://developer.2c2p.com/docs/sdk-how-to-integrate)
+
+### Payment with Card Token
+Import the library to your file
+
+```dart
+import 'package:pgw_sdk/builder/card_token_payment_builder.dart';
+import 'package:pgw_sdk/models/payment_code.dart';
+import 'package:pgw_sdk/models/transaction_result_request_builder.dart';
+import 'package:pgw_sdk/pgw_sdk.dart';
+```
+
+After get payment token from merchant server then construct transaction request
+```dart
+var paymentCode = PaymentCode(channelCode: 'CC');
+var paymentRequest = CardTokenPaymentBuilder(paymentCode: paymentCode, cardToken: cardToken).build();
+
+var request = TransactionResultRequestBuilder(
+  paymentToken: 'PAYMENT_TOKEN',
+  paymentRequest: paymentRequest,
+);
+```
+
+Execute Payment Request
+```dart
+var result = await PGWSDK.paymentWithCardToken(request);
+var redirectUrl = result.data;
+```
+Finally got a redirect url from result.
+
+
+## Payment Features Example Usage
+
+This project has been created example app for test the function of SDK so this is how to use some feature that quite  complicated.
+
+- [Example Stored Card Usage](EXAMPLE_STORED_CARD_USAGE.md) 
+- [Example Pay at Counter Usage](EXAMPLE_PAY_AT_COUNTER_USAGE.md)
 
 ## Contributing
 2C2P

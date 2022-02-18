@@ -145,9 +145,9 @@ class PaymentOptionDetailApi {
                         ],
                     ],
                 ],
-                "responseCode": response.responseCode as String,
-                "responseDescription": response.responseDescription as String,
-            ]
+            ],
+            "responseCode": response.responseCode as String,
+            "responseDescription": response.responseDescription as String,
         ]
         
         do {

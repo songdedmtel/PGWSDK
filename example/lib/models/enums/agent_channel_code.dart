@@ -1,0 +1,8 @@
+enum AgentChannelCode {
+  WEBPAY,
+  BANKCOUNTER,
+  OVERTHECOUNTER,
+  ATM,
+  KIOSK,
+  IBANKING,
+}

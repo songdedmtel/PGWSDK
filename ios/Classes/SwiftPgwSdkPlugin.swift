@@ -20,6 +20,9 @@ public class SwiftPgwSdkPlugin: NSObject, FlutterPlugin {
         case "proceedTransaction":
             TransactionApi(call, result: result).proceed()
             break;
+        case "paymentWithCardToken":
+            PaymentWithCardToken(call, result: result).proceed()
+            break;
         case "paymentOption":
             PaymentOptionApi(call, result: result).request()
             break;
@@ -27,6 +30,9 @@ public class SwiftPgwSdkPlugin: NSObject, FlutterPlugin {
             PaymentOptionDetailApi(call, result: result).request()
             break;
         case "transactionStatus":
+            TransactionStatusApi(call, result: result).request()
+            break;
+        case "cardTokenInfo":
             TransactionStatusApi(call, result: result).request()
             break;
         default:

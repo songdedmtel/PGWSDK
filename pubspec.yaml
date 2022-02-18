@@ -1,6 +1,6 @@
 name: pgw_sdk
 description: PGWSDK for Flutter.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/2C2P/PGWSDK-Flutter
 
 environment:

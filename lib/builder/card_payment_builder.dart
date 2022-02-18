@@ -22,20 +22,24 @@ class CardPaymentBuilder extends UniversalPaymentBuilder<CardPaymentBuilder> {
   String? _country;
   bool? _tokenize;
 
-  setCardNo(String cardNo) {
+  CardPaymentBuilder setCardNo(String cardNo) {
     this._cardNo = cardNo;
+    return this;
   }
 
-  setBank(String bank) {
+  CardPaymentBuilder setBank(String bank) {
     this._bank = bank;
+    return this;
   }
 
-  setCountry(String country) {
+  CardPaymentBuilder setCountry(String country) {
     this._country = country;
+    return this;
   }
 
-  setTokenize(bool tokenize) {
+  CardPaymentBuilder setTokenize(bool tokenize) {
     this._tokenize = tokenize;
+    return this;
   }
 
   @override
