@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pgw_sdk/pgw_sdk.dart';
-import 'package:pgw_sdk_example/models/channels/pay_at_counter.dart';
-import 'package:pgw_sdk_example/models/enums/country_code.dart';
-import 'package:pgw_sdk_example/models/payment_channel.dart';
+import 'package:pgw_sdk_example/models/enums/sdk_api_type.dart';
 import 'package:pgw_sdk_example/scenes/home/home_interactor.dart';
 import 'package:pgw_sdk_example/scenes/home/home_router.dart';
+import 'package:pgw_sdk_example/widgets/dialog_view.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -125,22 +124,26 @@ class _HomePageState extends State<HomePage> {
                               iconPath: 'assets/icons/ic_internet_banking.png',
                               title: 'Internet\nBanking',
                               onTap: () {
-                                print(payAtCounterList.where((PaymentChannel e) => e.countryCode == CountryCode.ID));
-                                _interactor.showDialogComingSoon();
+                                _router.toInternetBankingPage();
                               },
                             ),
                             _iconPayment(
                               iconPath: 'assets/icons/ic_qr_code.png',
                               title: 'QR\nPayment',
                               onTap: () {
-                                _interactor.showDialogComingSoon();
+                                DialogView.show(
+                                  context,
+                                  title: 'Coming Soon',
+                                  message: 'Please check future releases for upcoming QR Payment examples',
+                                );
+                                //_router.toQRPaymentPage();
                               },
                             ),
                             _iconPayment(
                               iconPath: 'assets/icons/ic_over_the_counter.png',
-                              title: 'Pay at\nCounter',
+                              title: 'Over the\nCounter',
                               onTap: () {
-                                _router.toPayAtCounterPage();
+                                _router.toOverTheCounterPage();
                               },
                             ),
                           ],
@@ -159,25 +162,6 @@ class _HomePageState extends State<HomePage> {
                                 _interactor.paymentWithCardToken();
                               },
                             ),
-                            // _iconPayment(
-                            //   iconPath: 'assets/icons/ic_internet_banking.png',
-                            //   title: 'Internet\nBanking',
-                            //   onTap: () {
-                            //     print(payAtCounterList.where((PaymentChannel e) => e.countryCode == CountryCode.ID));
-                            //   },
-                            // ),
-                            // _iconPayment(
-                            //   iconPath: 'assets/icons/ic_qr_code.png',
-                            //   title: 'QR\nPayment',
-                            //   onTap: () {},
-                            // ),
-                            // _iconPayment(
-                            //   iconPath: 'assets/icons/ic_over_the_counter.png',
-                            //   title: 'Pay at\nCounter',
-                            //   onTap: () {
-                            //     _router.toPayAtCounterPage();
-                            //   },
-                            // ),
                           ],
                         ),
                       ),
@@ -207,13 +191,49 @@ class _HomePageState extends State<HomePage> {
                           child: ListView.builder(
                             physics: BouncingScrollPhysics(),
                             shrinkWrap: true,
-                            itemCount: _sdkApiTitles.length,
+                            itemCount: SDKAPIType.values.length,
                             itemBuilder: (BuildContext context, int index) {
                               return ListTile(
-                                title: Text(_sdkApiTitles[index]),
+                                title: Text(SDKAPIType.values[index].name),
                                 trailing: Icon(Icons.arrow_forward_ios_sharp),
                                 onTap: () {
-                                  _interactor.showDialogComingSoon();
+                                  DialogView.show(
+                                    context,
+                                    title: 'Coming Soon',
+                                    message: 'Please check future releases for upcoming SDK API option examples',
+                                  );
+                                  // switch (SDKAPIType.values[index]) {
+                                  //   case SDKAPIType.paymentOptions:
+                                  //     _router.toPaymentOptionsPage();
+                                  //     break;
+                                  //   case SDKAPIType.paymentOptionDetails:
+                                  //     _router.toPaymentOptionDetailsPage();
+                                  //     break;
+                                  //   case SDKAPIType.doPayment:
+                                  //     _router.toDoPaymentPage();
+                                  //     break;
+                                  //   case SDKAPIType.transactionStatusInquiry:
+                                  //     _router.toTransactionStatusInquiryPage(_interactor.paymentToken);
+                                  //     break;
+                                  //   case SDKAPIType.pgwInitialization:
+                                  //     _router.toPGWInitializationPage();
+                                  //     break;
+                                  //   case SDKAPIType.cardTokensInformation:
+                                  //     _router.toCardTokensInformationPage();
+                                  //     break;
+                                  //   case SDKAPIType.exchangeRate:
+                                  //     _router.toExchangeRatePage();
+                                  //     break;
+                                  //   case SDKAPIType.userPreference:
+                                  //     _router.toUserPreferencePage();
+                                  //     break;
+                                  //   case SDKAPIType.paymentNotification:
+                                  //     _router.toPaymentNotificationPage();
+                                  //     break;
+                                  //   case SDKAPIType.cancelTransaction:
+                                  //     _router.toCancelTransactionPage();
+                                  //     break;
+                                  // }
                                 },
                               );
                             },

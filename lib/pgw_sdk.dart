@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,7 +39,6 @@ class PGWSDK {
     final String jsonResponse = await _channel.invokeMethod('proceedTransaction', {
       'request': builder.toJson(),
     });
-    print(jsonResponse);
     final result = TransactionResultResponse.fromJson(jsonResponse);
     result.raw = jsonResponse;
     return result;
@@ -56,6 +56,8 @@ class PGWSDK {
     final String jsonResponse = await _channel.invokeMethod('paymentOption', {
       'paymentOptionRequest': request.toJson(),
     });
+
+    log(jsonResponse);
     final result = PaymentOptionResponse.fromJson(jsonResponse);
     return result;
   }

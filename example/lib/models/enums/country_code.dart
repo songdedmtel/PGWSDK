@@ -24,7 +24,7 @@ extension CountryCodeExtension on CountryCode {
       case CountryCode.MM:
         return 'Myanmar';
       case CountryCode.PH:
-        return 'Phillipines';
+        return 'Philippines';
       case CountryCode.SG:
         return 'Singapore';
       case CountryCode.MY:

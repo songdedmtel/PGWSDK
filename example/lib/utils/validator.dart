@@ -38,13 +38,8 @@ class Validator {
       return null;
   }
 
-  static String? validDropdownCountry(String? value) {
-    if (value == null) return '*Country required';
-    return null;
-  }
-
-  static String? validDropdownAgent(String? value) {
-    if (value == null) return '*Payment agent required';
+  static String? validDropdown(String? value) {
+    if (value == null) return '*Selection required';
     return null;
   }
 }

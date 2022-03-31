@@ -1,57 +1,46 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pgw_sdk_example/constant/colours.dart';
+import 'package:pgw_sdk_example/constant/styles.dart';
 
-Widget customDropdown({
-  Key? key,
-  String? label,
-  String? hintText,
-  String? value,
-  required List<String> items,
-  required void Function(String?) onChanged,
-  String? Function(String?)? validator,
-  bool enabled = true,
-}) {
-  return Container(
-    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(
-        label ?? '',
+class CustomDropdown extends StatelessWidget {
+  const CustomDropdown({
+    this.label,
+    this.value,
+    required this.items,
+    this.onChanged,
+    this.validator,
+    this.enabled,
+    Key? key,
+  }) : super(key: key);
+  final String? label;
+  final String? value;
+  final List<String> items;
+  final String? Function(String?)? onChanged;
+  final String? Function(String?)? validator;
+  final bool? enabled;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 5.0),
+            child: Text(
+              label ?? '',
+            ),
+          ),
+          SizedBox(height: 5),
+          DropdownButtonFormField<String>(
+            decoration: customInputDecoration,
+            value: value ?? null,
+            items: items.map((String item) => DropdownMenuItem(value: item, child: Text(item))).toList(),
+            onChanged: onChanged ?? null,
+            validator: validator,
+          ),
+        ],
       ),
-      SizedBox(height: 5),
-      DropdownButtonFormField<String>(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: primaryColor),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.red),
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 15,
-            vertical: 20,
-          ),
-          fillColor: Colors.white,
-          filled: true,
-        ),
-        value: value ?? null,
-        items: items.map((String item) => DropdownMenuItem(value: item, child: Text(item))).toList(),
-        onChanged: enabled ? onChanged : null,
-        validator: validator,
-      ),
-    ]),
-  );
+    );
+  }
 }

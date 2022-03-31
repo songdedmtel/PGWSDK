@@ -2,67 +2,57 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pgw_sdk_example/constant/colours.dart';
+import 'package:pgw_sdk_example/constant/styles.dart';
 
-Widget customTextField({
-  Key? key,
-  String? label,
-  String? hintText,
-  Function(String)? onChanged,
-  String? Function(String?)? validator,
-  List<TextInputFormatter>? formatters,
-  bool? enabled,
-}) {
-  return Container(
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label ?? '',
-        ),
-        SizedBox(height: 5),
-        TextFormField(
-          enabled: enabled ?? true,
-          style: TextStyle(
-            decoration: TextDecoration.none,
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({
+    Key? key,
+    this.label,
+    this.hintText,
+    this.errorText,
+    this.onChanged,
+    this.controller,
+    this.validator,
+    this.formatters,
+    this.enabled,
+  }) : super(key: key);
+
+  final String? label;
+  final String? hintText;
+  final String? errorText;
+  final Function(String)? onChanged;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  final List<TextInputFormatter>? formatters;
+  final bool? enabled;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 5.0),
+            child: Text(
+              label ?? '',
+            ),
           ),
-          validator: validator ?? null,
-          onChanged: onChanged,
-          cursorColor: primaryColor,
-          decoration: InputDecoration(
-            fillColor: Colors.white,
-            filled: true,
-            hintText: hintText ?? '',
-            hintStyle: TextStyle(
+          SizedBox(height: 5),
+          TextFormField(
+            controller: controller ?? null,
+            enabled: enabled ?? true,
+            style: TextStyle(
               decoration: TextDecoration.none,
             ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.grey),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: primaryColor),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.grey),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.red),
-            ),
-            disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.grey),
-            ),
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: 15,
-              vertical: 20,
-            ),
+            validator: validator ?? null,
+            onChanged: onChanged,
+            cursorColor: primaryColor,
+            decoration: customInputDecoration,
+            inputFormatters: formatters,
           ),
-          inputFormatters: formatters,
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+    );
+  }
 }

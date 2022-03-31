@@ -9,7 +9,6 @@ class DialogView {
     BuildContext context, {
     required String title,
     required String message,
-    required Function onTap,
   }) {
     showDialog(
       barrierDismissible: false,
@@ -26,34 +25,39 @@ class DialogView {
               Radius.circular(20),
             ),
           ),
-          contentPadding: EdgeInsets.all(0),
           content: Container(
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
                     message,
                     style: Styles.text(size: 16, color: Colors.grey.shade800),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 14.0),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  height: 45,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: primaryColor,
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
                     ),
-                    child: Text('Close'),
+                    child: Text(
+                      'Close',
+                      style: textDialogButton,
+                    ),
                     onPressed: () {
                       Navigator.pop(context);
                     },

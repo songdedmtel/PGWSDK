@@ -59,7 +59,6 @@ class HomeInteractor {
           _context,
           title: 'Error',
           message: result.responseDescription ?? 'Something wrong',
-          onTap: () {},
         );
       }
     } else {
@@ -131,7 +130,6 @@ class HomeInteractor {
       _context,
       title: 'Error',
       message: 'Please use \'Credit/Debit Card\' and set \'Save card data for future payments\' before use this feature.',
-      onTap: () {},
     );
   }
 
@@ -140,7 +138,6 @@ class HomeInteractor {
       _context,
       title: 'Coming soon',
       message: 'Please wait for the new update.',
-      onTap: () {},
     );
   }
 }

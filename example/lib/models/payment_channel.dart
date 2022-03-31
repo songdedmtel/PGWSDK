@@ -12,6 +12,7 @@ class PaymentChannel {
   AgentChannelCode? agentChannelCode;
   String? agentCode;
   CountryCode? countryCode;
+  String? logo;
 
   PaymentChannel({
     required this.categoryCode,
@@ -21,6 +22,7 @@ class PaymentChannel {
     this.agentChannelCode,
     this.agentCode,
     this.countryCode,
+    this.logo,
   });
   @override
   String toString() {

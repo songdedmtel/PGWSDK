@@ -1,20 +1,22 @@
 # Pay at Counter Feature Example
 
-Pay at Counter allow customer to generate a payment slips and make payment at the physical counter.
+The 2C2P PGW SDK allows customers to receive a payment slip through the merchant's mobile application. Customers can then make payments at the merchant's physical counter.
 
-Mobile SDK allow customer to generate payment slips by using your mobile app.
+The mobile SDK allows customers to generate payment slips by using a mobile app.
 
 ## Usage
 
-Please input all field required on Pay at Counter page.
+Selecting the Over the Counter option on the example app will bring you to the input page. 
 
-![img](assets/readme/img_payatcounter1.png)
+Please fill in all required inputs and select a payment agent, as shown below. 
 
-Then click `Proceed`
+![img](assets/readme/img_overthecounter1.png)
 
-The App will bring you to transaction from webview then this step need to pay this transaction to complete process flow.
+Tap the `Proceed` button to navigate to the transaction page. 
 
-![img](assets/readme/img_payatcounter2.png)
+You can make a transaction here to complete the payment process. 
+
+![img](assets/readme/img_overthecounter2.png)
 
 ## Handle Response
 

@@ -54,7 +54,7 @@ class TransactionStatusAdditionalInfo {
   factory TransactionStatusAdditionalInfo.fromMap(Map<String, dynamic> json) => TransactionStatusAdditionalInfo(
         merchantInfo: json["merchantInfo"] == null ? null : MerchantInfo.fromMap(json["merchantInfo"]),
         transactionInfo: json["transactionInfo"] == null ? null : TransactionAdditionalInfo.fromMap(json["transactionInfo"]),
-        resultInfo: json["userInfo"] == null ? null : PaymentResultAdditionalInfo.fromMap(json["userInfo"]),
+        resultInfo: json["resultInfo"] == null ? null : PaymentResultAdditionalInfo.fromMap(json["resultInfo"]),
       );
 
   Map<String, dynamic> toMap() => {
