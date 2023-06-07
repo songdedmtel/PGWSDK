@@ -89,8 +89,11 @@ class PaymentWithCardToken {
             guard let cardToken = jsonPaymentData["token"] as? String else {
                 return nil
             }
+            guard let securityCode = jsonPaymentData["securityCode"] as? String else {
+                return nil
+            }
             
-            let paymentRequest = CardTokenPaymentBuilder(paymentCode: paymentCode, cardToken).build()
+            let paymentRequest = CardTokenPaymentBuilder(paymentCode: paymentCode, cardToken).securityCode(securityCode).build()
             var builder = TransactionResultRequestBuilder(paymentToken: paymentToken)
             if let clientId = jsonDict?["clientID"] as? String {
                 builder = builder.clientId(clientId)
