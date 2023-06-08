@@ -91,7 +91,7 @@ class PaymentWithCardTokenApi(
                 JsonHelper.jsonString(jsonPaymentCode, "agentChannelCode"),
             )
 
-            val paymentRequest = CardTokenPaymentBuilder(code, cardToken).securityCode(securityCode).build()
+            val paymentRequest = CardTokenPaymentBuilder(code, cardToken).setSecurityCode(securityCode).build()
 
             return TransactionResultRequestBuilder(paymentToken).apply {
                 if (!clientId.isNullOrBlank()) {
