@@ -117,6 +117,7 @@ class TransactionApi {
                 .expiryMonth(jsonDict["expiryMonth"] as? Int ?? 0)
                 .expiryYear(jsonDict["expiryYear"] as? Int ?? 0)
                 .securityCode(jsonDict["securityCode"] as? String ?? "")
+                .name(jsonDict["name"] as? String ?? "")
                 .build()
         case "123":
             switch paymentCode.agentChannelCode {
